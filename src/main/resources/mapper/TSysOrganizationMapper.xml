@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycompany.kafka.mapper.TSysOrganizationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mycompany.kafka.entity.TSysOrganization">
+        <result column="ID" property="id" />
+        <result column="ORG_NAME" property="orgName" />
+        <result column="ADDR" property="addr" />
+        <result column="PIC_ID" property="picId" />
+        <result column="SORT_NUM" property="sortNum" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, ORG_NAME, ADDR, PIC_ID, SORT_NUM
+    </sql>
+
+</mapper>

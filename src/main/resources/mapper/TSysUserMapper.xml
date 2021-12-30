@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycompany.kafka.mapper.TSysUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mycompany.kafka.entity.TSysUser">
+        <result column="ID" property="id" />
+        <result column="NAME" property="name" />
+        <result column="GENDER" property="gender" />
+        <result column="USER_NO" property="userNo" />
+        <result column="LOGIN_PASSWORD" property="loginPassword" />
+        <result column="BIRTH_DAY" property="birthDay" />
+        <result column="PHONE" property="phone" />
+        <result column="ADDR" property="addr" />
+        <result column="WORK_TIME" property="workTime" />
+        <result column="NATION" property="nation" />
+        <result column="ID_CARD" property="idCard" />
+        <result column="DEPT_ID" property="deptId" />
+        <result column="ORG_ID" property="orgId" />
+        <result column="STATE" property="state" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, NAME, GENDER, USER_NO, LOGIN_PASSWORD, BIRTH_DAY, PHONE, ADDR, WORK_TIME, NATION, ID_CARD, DEPT_ID, ORG_ID, STATE
+    </sql>
+
+</mapper>

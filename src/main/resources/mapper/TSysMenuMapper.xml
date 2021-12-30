@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycompany.kafka.mapper.TSysMenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mycompany.kafka.entity.TSysMenu">
+        <result column="ID" property="id" />
+        <result column="MENU_NAME" property="menuName" />
+        <result column="MENU_URL" property="menuUrl" />
+        <result column="MENU_TYPE" property="menuType" />
+        <result column="MENU_ICON" property="menuIcon" />
+        <result column="ORDER_NUM" property="orderNum" />
+        <result column="PARENT_ID" property="parentId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, MENU_NAME, MENU_URL, MENU_TYPE, MENU_ICON, ORDER_NUM, PARENT_ID
+    </sql>
+
+</mapper>

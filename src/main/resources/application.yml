@@ -1,0 +1,80 @@
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@10.1.81.174:1521/fndb
+    username: kafka
+    password: kafka
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+      static-path-pattern: /**
+
+    #  password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 30
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: RunAdminHikari
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1 from dual
+  resources:
+    #static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${common.*}
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/, classpath:/mapper/,file:${common.*}
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  main:
+    allow-bean-definition-overriding: true
+mybatis-plus:
+  tenant-enable: ture
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.gwxy.shopping.data
+  # mapper-locations: com.gwxy.shopping.*Mapper.xml
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+      field-strategy: NOT_EMPTY
+server:
+  port: 8088
+servlet:
+    #context-path: /run-admin
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 16MB
+# JWT 配置
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: jicRunAdmin #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头
+# 日志
+logging:
+  level:
+    root: info
+    com.gwxy.shopping: debug
+    org:
+      springframework:
+        security: debug
+
+
+common:
+    md5:
+      salt: 96DDC00D5FE519DDB8EB1545418E694C
+    imagePath: D:/shoppResultCodeing/src/main/resources/public/imagePath/
+#    apkPath:  E:/upload/apk/ #安卓
+#    ipaPath:  E:/upload/ipa/ #苹果
+    showPath: imagePath/
+    passwordCount: 100
+    user:
+      autoCheck: true
+      #cleanPasswordCount: 0 0/2 * * * ?  #c测试
+      cleanPasswordCount: 0 0 0 * * ?   #生产
